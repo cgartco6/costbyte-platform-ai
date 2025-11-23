@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  costbyte-api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+    volumes:
+      - ./config:/app/config
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  monitor:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: ["python", "scripts/monitor_performance.py"]
+    environment:
+      - ENVIRONMENT=production
+    volumes:
+      - ./config:/app/config
+    depends_on:
+      - costbyte-api
