@@ -1,0 +1,46 @@
+payment:
+  registration_fee: 500
+  currency: "ZAR"
+  
+  bank_accounts:
+    primary:
+      bank: "FNB"
+      account_name: "First Business Zero Account"
+      account_number: "{{FNB_ACCOUNT_NUMBER}}"
+      branch_code: "250655"
+    
+    payout_accounts:
+      encore_aspire:
+        bank: "FNB"
+        account_name: "Encore Aspire Current"
+        account_number: "{{ENCORE_ASPIRE_ACCOUNT}}"
+        percentage: 40
+        
+      my_world_african:
+        bank: "African Bank"
+        account_name: "My World African"
+        account_number: "{{MY_WORLD_AFRICAN_ACCOUNT}}"
+        percentage: 15
+        
+      nexus_platform:
+        bank: "FNB"
+        account_name: "Nexus Platform AI"
+        account_number: "{{NEXUS_PLATFORM_ACCOUNT}}"
+        percentage: 20
+        
+      apex_digital:
+        bank: "FNB"
+        account_name: "Apex Digital AI"
+        account_number: "{{APEX_DIGITAL_ACCOUNT}}"
+        percentage: 20
+
+  processors:
+    payfast:
+      merchant_id: "{{PAYFAST_MERCHANT_ID}}"
+      merchant_key: "{{PAYFAST_MERCHANT_KEY}}"
+      passphrase: "{{PAYFAST_PASSPHRASE}}"
+      sandbox: false
+    
+    payshap:
+      api_key: "{{PAYSHAP_API_KEY}}"
+      base_url: "https://api.payshap.com"
