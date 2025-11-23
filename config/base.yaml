@@ -1,0 +1,33 @@
+# Base configuration for CostByte AI system
+system:
+  name: "CostByte AI"
+  version: "1.0.0"
+  environment: "development"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+agents:
+  deep_agents:
+    enabled: true
+    max_concurrent: 5
+    timeout: 300
+    
+  helper_agents:
+    enabled: true
+    types: ["data_processor", "model_manager", "memory_handler"]
+
+synthetic_intelligence:
+  model_provider: "openai"
+  max_tokens: 4000
+  temperature: 0.7
+
+strategic_intelligence:
+  planning_engine: "hierarchical"
+  max_plan_depth: 10
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
